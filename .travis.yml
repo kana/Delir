@@ -12,6 +12,9 @@ node_js:
 env:
     - CXX=g++-4.8
 
+before_install:
+    modprobe snd-dummy
+
 install:
     - npm i -g yarn
     - yarn install -s
@@ -29,3 +32,5 @@ addons:
             - libfontconfig1-dev
             # dependent by `av`
             - libasound2-dev
+            - alsa-utils
+            - alsa-oss
