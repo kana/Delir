@@ -1,18 +1,14 @@
 // @flow
 import path from 'path'
-import PluginRegistry from '../plugin-registry'
+import FSPluginLoader from '../FSPluginLoader'
 
 describe('PluginRegistry', () => {
     it('exporting: PluginFeatures', () => {
-        expect(PluginRegistry.PluginFeatures).to.not.eql(null)
-        expect(PluginRegistry.PluginFeatures).to.be.an('object')
-    })
 
     it('loading plugins', async () => {
         // mock missing method in mocha
-        global.require = require
 
-        const r = new PluginRegistry()
+        const r = new FSPluginLoader()
         const result = await r.loadPackageDir(path.join(__dirname, '../../src/plugins'))
 
         expect(result).to.not.empty()
