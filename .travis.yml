@@ -10,8 +10,7 @@ node_js:
     - '8'
 
 env:
-    - CXX=g++-4.8
-    - AUDIODEV=null
+    - CXX=g++-4.8 AUDIODEV=null
 
 before_install:
     - modprobe snd-dummy
