@@ -11,13 +11,14 @@ node_js:
 
 env:
     - CXX=g++-4.8
+    - AUDIODEV=null
 
 before_install:
-    modprobe snd-dummy
+    - modprobe snd-dummy
 
 install:
     - npm i -g yarn
-    - yarn install -s
+    - yarn install -s --no-optional
 
 script:
     - yarn test-front
