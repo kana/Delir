@@ -20,7 +20,7 @@ install:
 
 script:
     - yarn test-front
-    - yarn test-core
+    - AUDIODEV=null yarn test-core
 
 addons:
     apt:
